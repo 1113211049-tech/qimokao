@@ -3,251 +3,433 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="2026 未來科技論壇 - Khám phá AI, Blockchain và Công nghệ Bền vững. Đăng ký ngay!" />
-  <meta name="keywords" content="2026未來科技論壇, AI, Blockchain, 永續科技, 科技論壇" />
-  <title>2026 未來科技論壇</title>
-  <link rel="icon" href="/favicon.ico" />
+  <meta name="description" content="未來通訊 - 提供最新的智慧型手機, Apple, Samsung, Pixel 等旗艦機種。立即選購!" />
+  <meta name="keywords" content="手機, 智慧型手機, iPhone, Samsung, Pixel, 買手機, 手機推薦" />
+  <title>未來通訊 Future Mobile | 旗艦手機專賣</title>
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <!-- AOS CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    /* Custom Styles for Mobile Shop Theme */
+    body {
+        font-family: 'Noto Sans TC', 'Roboto', sans-serif;
+        padding-top: 60px;
+        background-color: #f8f9fa;
+    }
+
+    .navbar-brand {
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        position: relative;
+        background-image: url('https://images.unsplash.com/photo-1556656793-02715d8dd6f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        min-height: 85vh;
+        color: white;
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+        z-index: 1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Product Cards */
+    .product-card {
+        transition: all 0.3s ease;
+        border: none;
+        overflow: hidden;
+    }
+    
+    .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .product-img-wrapper {
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        padding: 20px;
+    }
+
+    .product-img-wrapper img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+        transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-img-wrapper img {
+        transform: scale(1.05);
+    }
+
+    .price-tag {
+        color: #dc3545;
+        font-weight: bold;
+        font-size: 1.25rem;
+    }
+
+    /* Features Section Icons */
+    .feature-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: rgba(13, 110, 253, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 15px;
+        color: #0d6efd;
+        transition: background-color 0.3s;
+    }
+
+    .feature-box:hover .feature-icon {
+        background-color: #0d6efd;
+        color: white;
+    }
+
+    /* Footer */
+    footer {
+        background-color: #212529;
+        color: #adb5bd;
+    }
+    
+    footer a {
+        color: #adb5bd;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    
+    footer a:hover {
+        color: white;
+    }
+  </style>
 </head>
 <body>
+
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="/public/images/Aii.jpg" alt="Logo" width="40" height="40" class="me-2" onerror="this.style.display='none';" />
-        2026 未來科技論壇
+        <i class="bi bi-phone me-2 fs-4"></i>
+        未來通訊 Future Mobile
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#hero">首頁</a></li>
-          <li class="nav-item"><a class="nav-link" href="#agenda">議程</a></li>
-          <li class="nav-item"><a class="nav-link" href="#speakers">講者</a></li>
-          <li class="nav-item"><a class="nav-link" href="#info">活動資訊</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#hero">首頁</a></li>
+          <li class="nav-item"><a class="nav-link" href="#new-arrivals">最新旗艦</a></li>
+          <li class="nav-item"><a class="nav-link" href="#products">熱銷推薦</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">服務優勢</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">聯絡我們</a></li>
         </ul>
+        <div class="ms-3 d-none d-lg-block">
+            <button class="btn btn-outline-light position-relative">
+                <i class="bi bi-cart3"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    2
+                </span>
+            </button>
+        </div>
       </div>
     </div>
   </nav>
 
-<section 
-  id="hero" 
-  class="hero-section d-flex align-items-center justify-content-center text-center text-white"
-  style="background-image: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url('/images/hero.png'); 
-         background-size: cover; 
-         background-position: center; 
-         min-height: 100vh;"
-  data-aos="fade-in"
->
-  <div class="container">
-    <h1 class="display-4 fw-bold">2026 未來科技論壇</h1>
-    <p class="lead mb-4">
-      探索 AI、區塊鏈與永續科技的無限可能 – 加入 chúng tôi để định hình tương lai!
-    </p>
-    <a href="#agenda" class="btn btn-primary btn-lg px-5 py-3 shadow">
-      立即報名
-    </a>
-  </div>
-</section>
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="container hero-content">
+      <div class="row">
+        <div class="col-lg-6" data-aos="fade-right">
+          <span class="badge bg-danger mb-3 px-3 py-2">2026 新品上市</span>
+          <h1 class="display-3 fw-bold mb-3">Titanium Pro Ultra</h1>
+          <p class="lead mb-4">
+            重新定義智慧生活。搭載最新 AI 晶片，超乎想像的相機系統，以及全天候的電力續航。
+          </p>
+          <div class="d-flex gap-3">
+            <a href="#products" class="btn btn-primary btn-lg px-4 shadow rounded-pill">
+              立即購買 <i class="bi bi-bag-check ms-2"></i>
+            </a>
+            <a href="#" class="btn btn-outline-light btn-lg px-4 rounded-pill">
+              了解更多
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Agenda Section -->
-  <section id="agenda" class="py-5 bg-light">
+  <!-- New Arrivals (Featured) -->
+  <section id="new-arrivals" class="py-5">
     <div class="container">
-      <h2 class="text-center mb-5" data-aos="fade-up">議程安排</h2>
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold">本季主打</h2>
+        <p class="text-muted">精選年度最強旗艦機種</p>
+      </div>
+      
+      <div class="row align-items-center g-5">
+        <div class="col-md-6" data-aos="fade-right">
+            <img src="https://images.unsplash.com/photo-1610945265078-386f78f6920f?auto=format&fit=crop&w=800&q=80" alt="New Phone" class="img-fluid rounded-4 shadow-lg">
+        </div>
+        <div class="col-md-6" data-aos="fade-left">
+            <h3 class="fw-bold mb-3">Galaxy Z Fold 6 (2026 Edition)</h3>
+            <p class="text-muted fs-5">
+                展開視界，無限可能。全新的無痕摺疊技術，搭配多工處理能力，讓您的生產力倍增。現在預購即贈專屬保護殼與無線充電器。
+            </p>
+            <ul class="list-unstyled mb-4">
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> 7.8 吋 Dynamic AMOLED 螢幕</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Snapdragon 8 Gen 5 處理器</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> 支援 S Pen Pro</li>
+            </ul>
+            <button class="btn btn-dark btn-lg px-5">查看詳情</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <section id="products" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5" data-aos="fade-up">熱銷手機</h2>
+      
+      <!-- Filter Buttons (Demo only) -->
+      <div class="d-flex justify-content-center mb-5 gap-2" data-aos="fade-up" data-aos-delay="100">
+        <button class="btn btn-primary rounded-pill px-4">全部</button>
+        <button class="btn btn-outline-secondary rounded-pill px-4">Apple</button>
+        <button class="btn btn-outline-secondary rounded-pill px-4">Samsung</button>
+        <button class="btn btn-outline-secondary rounded-pill px-4">Pixel</button>
+      </div>
+
       <div class="row g-4">
-        <div class="col-md-4 mb-4" data-aos="slide-right" data-aos-delay="100">
-          <div class="card h-100 shadow-sm border-0">
+        <!-- Product 1 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="card product-card h-100">
+            <div class="product-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=400&q=80" alt="iPhone 16">
+            </div>
             <div class="card-body text-center">
-              <i class="bi bi-robot fs-1 text-primary mb-3"></i>
-              <h5 class="card-title">上午 9:00 - 10:30</h5>
-              <p class="card-text">AI 應用與未來趨勢：Tìm hiểu cách AI đang thay đổi thế giới, với các ví dụ thực tế từ chuyên gia hàng đầu.</p>
+              <h5 class="card-title fw-bold">iPhone 17 Pro</h5>
+              <p class="text-muted small">鈦金屬藍色 | 256GB</p>
+              <p class="price-tag">NT$ 36,900</p>
+              <button class="btn btn-outline-primary w-100" onclick="addToCart('iPhone 17 Pro')">加入購物車</button>
             </div>
           </div>
         </div>
-        <div class="col-md-4 mb-4" data-aos="slide-up" data-aos-delay="200">
-          <div class="card h-100 shadow-sm border-0">
-            <div class="card-body text-center">
-              <i class="bi bi-link-45deg fs-1 text-success mb-3"></i>
-              <h5 class="card-title">上午 11:00 - 12:30</h5>
-              <p class="card-text">區塊鏈技術探討：Khám phá tiềm năng của blockchain trong tài chính và an ninh dữ liệu.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="slide-left" data-aos-delay="300">
-          <div class="card h-100 shadow-sm border-0">
-            <div class="card-body text-center">
-              <i class="bi bi-tree fs-1 text-warning mb-3"></i>
-              <h5 class="card-title">下午 2:00 - 3:30</h5>
-              <p class="card-text">永續科技與創新：Thảo luận về công nghệ xanh và cách chúng góp phần bảo vệ môi trường.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Speakers Section -->
-  <section id="speakers" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-5" data-aos="fade-up">講者介紹</h2>
-      <div id="speakersCarousel" class="carousel slide" data-bs-ride="carousel" data-aos="zoom-in">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="card text-center shadow-sm border-0">
-              <img src="./assets/images/speaker1.jpg" class="card-img-top" alt="講者1" onerror="this.src='https://via.placeholder.com/300x200?text=Speaker+1'" />
-              <div class="card-body">
-                <h5>張三</h5>
-                <p>AI 專家</p>
-                <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#speakerModal1">詳細介紹</button>
+        <!-- Product 2 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="card product-card h-100">
+            <div class="product-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=400&q=80" alt="Samsung S25">
+            </div>
+            <div class="card-body text-center">
+              <h5 class="card-title fw-bold">Samsung S26 Ultra</h5>
+              <p class="text-muted small">夜幕綠 | 512GB</p>
+              <p class="price-tag">NT$ 40,900</p>
+              <button class="btn btn-outline-primary w-100" onclick="addToCart('Samsung S26 Ultra')">加入購物車</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="card product-card h-100">
+            <div class="product-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1598327773204-7b6c59d99723?auto=format&fit=crop&w=400&q=80" alt="Pixel 10">
+            </div>
+            <div class="card-body text-center">
+              <h5 class="card-title fw-bold">Google Pixel 10</h5>
+              <p class="text-muted small">曜石黑 | 128GB</p>
+              <p class="price-tag">NT$ 24,900</p>
+              <button class="btn btn-outline-primary w-100" onclick="addToCart('Google Pixel 10')">加入購物車</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+            <div class="card product-card h-100">
+              <div class="product-img-wrapper">
+                  <img src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&w=400&q=80" alt="Sony Xperia">
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title fw-bold">Sony Xperia 1 VII</h5>
+                <p class="text-muted small">經典紫 | 256GB</p>
+                <p class="price-tag">NT$ 32,990</p>
+                <button class="btn btn-outline-primary w-100" onclick="addToCart('Sony Xperia 1 VII')">加入購物車</button>
               </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="card text-center shadow-sm border-0">
-              <img src="./assets/images/speaker2.jpg" class="card-img-top" alt="講者2" onerror="this.src='https://via.placeholder.com/300x200?text=Speaker+2'" />
-              <div class="card-body">
-                <h5>李四</h5>
-                <p>區塊鏈專家</p>
-                <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#speakerModal2">詳細介紹</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#speakersCarousel" data-bs-slide="prev" aria-label="Previous slide">
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#speakersCarousel" data-bs-slide="next" aria-label="Next slide">
-          <span class="carousel-control-next-icon"></span>
-        </button>
       </div>
+    </div>
+  </section>
 
-      <!-- Speaker Modals -->
-      <div class="modal fade" id="speakerModal1" tabindex="-1" aria-labelledby="speakerModalLabel1" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 id="speakerModalLabel1">張三 - AI 專家</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <!-- Services / Features Section -->
+  <section id="services" class="py-5">
+    <div class="container">
+      <div class="row g-4 text-center">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-box p-4">
+                <div class="feature-icon">
+                    <i class="bi bi-shield-check fs-1"></i>
+                </div>
+                <h4 class="fw-bold">原廠保固</h4>
+                <p class="text-muted">所有商品皆為原廠正品，享有完整的一年原廠保固服務，讓您買得安心。</p>
             </div>
-            <div class="modal-body">
-              張三擁有 10 年 AI 研究經驗，將分享最新趨勢 như machine learning và ứng dụng thực tế trong ngành công nghiệp.
-            </div>
-          </div>
         </div>
-      </div>
-      <div class="modal fade" id="speakerModal2" tabindex="-1" aria-labelledby="speakerModalLabel2" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 id="speakerModalLabel2">李四 - 區塊鏈專家</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-box p-4">
+                <div class="feature-icon">
+                    <i class="bi bi-truck fs-1"></i>
+                </div>
+                <h4 class="fw-bold">快速到貨</h4>
+                <p class="text-muted">全台 24 小時快速出貨，台北市區更享當日配服務，新機不用等。</p>
             </div>
-            <div class="modal-body">
-              李四專注於區塊鏈應用，將探討 tương lai của tiền điện tử và an ninh mạng.
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-box p-4">
+                <div class="feature-icon">
+                    <i class="bi bi-credit-card fs-1"></i>
+                </div>
+                <h4 class="fw-bold">分期零利率</h4>
+                <p class="text-muted">支援各大銀行信用卡分期付款，最高可享 24 期零利率優惠。</p>
             </div>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Info Section -->
-  <section id="info" class="py-5 bg-light">
+  <!-- Contact / Subscribe Section -->
+  <section id="contact" class="py-5 bg-dark text-white">
     <div class="container">
-      <h2 class="text-center mb-5" data-aos="fade-up">活動資訊</h2>
-      <div class="row text-center g-4">
-        <div class="col-md-4" data-aos="flip-left" data-aos-delay="100">
-          <i class="bi bi-train-front fs-1 text-primary mb-3"></i>
-          <h5>交通方式</h5>
-          <p>地鐵站 A 出口步行 5 分鐘。Có xe buýt và taxi gần đó.</p>
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+            <h2 class="fw-bold">訂閱最新優惠資訊</h2>
+            <p class="lead text-light opacity-75">
+                不想錯過新品預購或限時特價？立即訂閱我們的電子報！
+            </p>
         </div>
-        <div class="col-md-4" data-aos="flip-up" data-aos-delay="200">
-          <i class="bi bi-geo-alt fs-1 text-success mb-3"></i>
-          <h5>地理位置</h5>
-          <p>台北市某某大樓。Địa chỉ chi tiết sẽ được gửi qua email sau khi đăng ký.</p>
-        </div>
-        <div class="col-md-4" data-aos="flip-right" data-aos-delay="300">
-          <i class="bi bi-house fs-1 text-warning mb-3"></i>
-          <h5>住宿優惠</h5>
-          <p>合作飯店提供 8 折優惠。Liên hệ chúng tôi để nhận mã giảm giá。</p>
+        <div class="col-lg-6" data-aos="fade-left">
+            <form id="subscribeForm" class="d-flex gap-2">
+                <input type="email" class="form-control form-control-lg" placeholder="請輸入您的 Email" required>
+                <button type="submit" class="btn btn-primary btn-lg px-4">訂閱</button>
+            </form>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-5" data-aos="fade-up">聯絡我們</h2>
-      <form id="contactForm" data-aos="slide-up" novalidate>
-        <div class="row g-3">
-          <div class="col-md-6">
-            <label for="name" class="form-label">姓名</label>
-            <input type="text" class="form-control" id="name" name="name" required />
-            <div class="invalid-feedback">請輸入您的姓名。</div>
-          </div>
-          <div class="col-md-6">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" required />
-            <div class="invalid-feedback">請輸入有效的 Email。</div>
-          </div>
-        </div>
-        <div class="mb-3">
-          <label for="message" class="form-label">訊息</label>
-          <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-          <div class="invalid-feedback">請輸入您的訊息。</div>
-        </div>
-        <button type="submit" class="btn btn-primary px-5">送出</button>
-      </form>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-4">
+  <footer class="pt-5 pb-3">
     <div class="container">
-      <p>&copy; 2023 2026 未來科技論壇. All rights reserved.</p>
-      <div class="mt-3">
-        <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
-      </div>
+        <div class="row g-4 mb-4">
+            <div class="col-md-4">
+                <h5 class="text-white mb-3">未來通訊 Future Mobile</h5>
+                <p class="small">我們致力於提供最新、最優質的智慧型手機與配件。客戶滿意是我們最大的動力。</p>
+                <div class="d-flex gap-3 mt-3">
+                    <a href="#"><i class="bi bi-facebook fs-5"></i></a>
+                    <a href="#"><i class="bi bi-instagram fs-5"></i></a>
+                    <a href="#"><i class="bi bi-line fs-5"></i></a>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <h5 class="text-white mb-3">快速連結</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#hero">首頁</a></li>
+                    <li class="mb-2"><a href="#products">所有商品</a></li>
+                    <li class="mb-2"><a href="#">關於我們</a></li>
+                    <li class="mb-2"><a href="#contact">聯絡客服</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-white mb-3">客戶服務</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#">訂單查詢</a></li>
+                    <li class="mb-2"><a href="#">退換貨政策</a></li>
+                    <li class="mb-2"><a href="#">隱私權條款</a></li>
+                    <li class="mb-2"><a href="#">常見問題 (FAQ)</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-white mb-3">聯絡資訊</h5>
+                <ul class="list-unstyled small">
+                    <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> 台北市信義區信義路五段 7 號</li>
+                    <li class="mb-2"><i class="bi bi-telephone me-2"></i> (02) 2345-6789</li>
+                    <li class="mb-2"><i class="bi bi-envelope me-2"></i> support@futuremobile.tw</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="border-secondary">
+        <div class="text-center small">
+            <p class="mb-0">&copy; 2026 未來通訊 Future Mobile. All rights reserved.</p>
+        </div>
     </div>
   </footer>
 
-  <!-- Bootstrap Bundle JS (Popper included) -->
+  <!-- Toast Notification Container -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="cartToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          <i class="bi bi-check-circle me-2"></i> 已成功加入購物車！
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap Bundle JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- AOS JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
+    // Initialize AOS
     AOS.init({
       duration: 800,
       once: true,
+      offset: 60
     });
 
-    // Contact form validation and submit
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      if (!form.checkValidity()) {
-        e.stopPropagation();
-        form.classList.add('was-validated');
-        return;
-      }
-      alert('感謝您的訊息，我們會盡快回覆！');
-      form.reset();
-      form.classList.remove('was-validated');
+    // Simple Cart Interaction
+    function addToCart(productName) {
+        const toastEl = document.getElementById('cartToast');
+        const toast = new bootstrap.Toast(toastEl);
+        
+        // Update toast message (optional)
+        // toastEl.querySelector('.toast-body').innerHTML = `<i class="bi bi-check-circle me-2"></i> 已將 ${productName} 加入購物車！`;
+        
+        toast.show();
+    }
+
+    // Subscribe Form
+    document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('感謝訂閱！我們會將最新優惠發送至您的信箱。');
+        this.reset();
     });
   </script>
-
-  <script type="module" src="/src/main.js"></script>
 </body>
 </html>
