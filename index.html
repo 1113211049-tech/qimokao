@@ -2,404 +2,416 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="未來通訊 - 提供最新的智慧型手機, Apple, Samsung, Pixel 等旗艦機種。立即選購!" />
-  <meta name="keywords" content="手機, 智慧型手機, iPhone, Samsung, Pixel, 買手機, 手機推薦" />
-  <title>未來通訊 Future Mobile | 旗艦手機專賣</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="2026 未來科技論壇 - 探索 AI、區塊鏈與永續科技的無限可能" />
+  <title>2026 未來科技論壇 | Future Tech Forum</title>
+  
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <!-- Bootstrap CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-  <!-- AOS CSS -->
+  <!-- AOS Animation CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
   <style>
-    /* Custom Styles for Mobile Shop Theme */
+    /* 注意：在 Vite 本地開發時，建議將這些樣式移至 src/style.scss 
+    */
+    :root {
+      --primary-color: #00f2ff; /* Neon Cyan */
+      --secondary-color: #7000ff; /* Neon Purple */
+      --dark-bg: #0a0a12;
+      --card-bg: #161625;
+      --text-color: #e0e0e0;
+    }
+
     body {
-        font-family: 'Noto Sans TC', 'Roboto', sans-serif;
-        padding-top: 60px;
-        background-color: #f8f9fa;
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, .navbar-brand {
+      font-family: 'Orbitron', sans-serif; /* Tech-style font for headers */
+      letter-spacing: 1px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: rgba(10, 10, 18, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .navbar-brand {
-        font-weight: 700;
-        letter-spacing: 1px;
+      color: var(--primary-color) !important;
+      font-weight: 700;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-color) !important;
     }
 
     /* Hero Section */
     .hero-section {
-        position: relative;
-        background-image: url('https://images.unsplash.com/photo-1556656793-02715d8dd6f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-        background-size: cover;
-        background-position: center;
-        min-height: 85vh;
-        color: white;
-        display: flex;
-        align-items: center;
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6)), 
+                  url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
     }
 
-    .hero-section::before {
-        content: "";
-        position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
-        z-index: 1;
+    .hero-content h1 {
+      font-size: 3.5rem;
+      text-transform: uppercase;
+      background: -webkit-linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
     }
 
-    .hero-content {
-        position: relative;
-        z-index: 2;
+    /* Buttons */
+    .btn-glow {
+      background-color: transparent;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      padding: 12px 30px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    /* Product Cards */
-    .product-card {
-        transition: all 0.3s ease;
-        border: none;
-        overflow: hidden;
+    .btn-glow:hover {
+      background-color: var(--primary-color);
+      color: #000;
+      box-shadow: 0 0 20px var(--primary-color);
+    }
+
+    /* Section Styling */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--primary-color);
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    /* Cards (Agenda) */
+    .agenda-card {
+      background-color: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 30px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
+    }
+
+    .agenda-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 242, 255, 0.15);
+      border-color: var(--primary-color);
+    }
+
+    .agenda-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: var(--secondary-color);
+    }
+
+    /* Speakers Carousel */
+    .speaker-img-container {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--primary-color);
+      box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+    }
+
+    .speaker-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Info Icons */
+    .info-box {
+      text-align: center;
+      padding: 20px;
     }
     
-    .product-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    .info-box i {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
     }
 
-    .product-img-wrapper {
-        height: 250px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #fff;
-        padding: 20px;
+    /* Contact Form */
+    .form-control {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
     }
 
-    .product-img-wrapper img {
-        max-height: 100%;
-        max-width: 100%;
-        object-fit: contain;
-        transition: transform 0.5s ease;
-    }
-
-    .product-card:hover .product-img-wrapper img {
-        transform: scale(1.05);
-    }
-
-    .price-tag {
-        color: #dc3545;
-        font-weight: bold;
-        font-size: 1.25rem;
-    }
-
-    /* Features Section Icons */
-    .feature-icon {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        background-color: rgba(13, 110, 253, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 15px;
-        color: #0d6efd;
-        transition: background-color 0.3s;
-    }
-
-    .feature-box:hover .feature-icon {
-        background-color: #0d6efd;
-        color: white;
+    .form-control:focus {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: var(--primary-color);
+      color: #fff;
+      box-shadow: none;
     }
 
     /* Footer */
     footer {
-        background-color: #212529;
-        color: #adb5bd;
-    }
-    
-    footer a {
-        color: #adb5bd;
-        text-decoration: none;
-        transition: color 0.2s;
-    }
-    
-    footer a:hover {
-        color: white;
+      background-color: #000;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 30px 0;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <i class="bi bi-phone me-2 fs-4"></i>
-        未來通訊 Future Mobile
+      <a class="navbar-brand" href="#">
+        <i class="bi bi-cpu me-2"></i>2026 FTF
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#hero">首頁</a></li>
-          <li class="nav-item"><a class="nav-link" href="#new-arrivals">最新旗艦</a></li>
-          <li class="nav-item"><a class="nav-link" href="#products">熱銷推薦</a></li>
-          <li class="nav-item"><a class="nav-link" href="#services">服務優勢</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">聯絡我們</a></li>
+          <li class="nav-item"><a class="nav-link" href="#hero">首頁</a></li>
+          <li class="nav-item"><a class="nav-link" href="#agenda">議程</a></li>
+          <li class="nav-item"><a class="nav-link" href="#speakers">講者</a></li>
+          <li class="nav-item"><a class="nav-link" href="#info">資訊</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">聯絡</a></li>
         </ul>
-        <div class="ms-3 d-none d-lg-block">
-            <button class="btn btn-outline-light position-relative">
-                <i class="bi bi-cart3"></i>
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    2
-                </span>
-            </button>
-        </div>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
   <section id="hero" class="hero-section">
-    <div class="container hero-content">
-      <div class="row">
-        <div class="col-lg-6" data-aos="fade-right">
-          <span class="badge bg-danger mb-3 px-3 py-2">2026 新品上市</span>
-          <h1 class="display-3 fw-bold mb-3">Titanium Pro Ultra</h1>
-          <p class="lead mb-4">
-            重新定義智慧生活。搭載最新 AI 晶片，超乎想像的相機系統，以及全天候的電力續航。
-          </p>
-          <div class="d-flex gap-3">
-            <a href="#products" class="btn btn-primary btn-lg px-4 shadow rounded-pill">
-              立即購買 <i class="bi bi-bag-check ms-2"></i>
-            </a>
-            <a href="#" class="btn btn-outline-light btn-lg px-4 rounded-pill">
-              了解更多
-            </a>
-          </div>
-        </div>
-      </div>
+    <div class="container text-center hero-content" data-aos="zoom-in" data-aos-duration="1000">
+      <h1 class="display-3 fw-bold">2026 未來科技論壇</h1>
+      <p class="lead mb-5 fs-4">探索 AI、區塊鏈與永續科技的無限邊界</p>
+      <a href="#contact" class="btn btn-glow rounded-pill">
+        立即報名參加 <i class="bi bi-arrow-right ms-2"></i>
+      </a>
     </div>
   </section>
 
-  <!-- New Arrivals (Featured) -->
-  <section id="new-arrivals" class="py-5">
+  <!-- Agenda Section -->
+  <section id="agenda">
     <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
-        <h2 class="fw-bold">本季主打</h2>
-        <p class="text-muted">精選年度最強旗艦機種</p>
-      </div>
-      
-      <div class="row align-items-center g-5">
-        <div class="col-md-6" data-aos="fade-right">
-            <img src="https://images.unsplash.com/photo-1610945265078-386f78f6920f?auto=format&fit=crop&w=800&q=80" alt="New Phone" class="img-fluid rounded-4 shadow-lg">
-        </div>
-        <div class="col-md-6" data-aos="fade-left">
-            <h3 class="fw-bold mb-3">Galaxy Z Fold 6 (2026 Edition)</h3>
-            <p class="text-muted fs-5">
-                展開視界，無限可能。全新的無痕摺疊技術，搭配多工處理能力，讓您的生產力倍增。現在預購即贈專屬保護殼與無線充電器。
-            </p>
-            <ul class="list-unstyled mb-4">
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> 7.8 吋 Dynamic AMOLED 螢幕</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Snapdragon 8 Gen 5 處理器</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> 支援 S Pen Pro</li>
-            </ul>
-            <button class="btn btn-dark btn-lg px-5">查看詳情</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Products Grid -->
-  <section id="products" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center fw-bold mb-5" data-aos="fade-up">熱銷手機</h2>
-      
-      <!-- Filter Buttons (Demo only) -->
-      <div class="d-flex justify-content-center mb-5 gap-2" data-aos="fade-up" data-aos-delay="100">
-        <button class="btn btn-primary rounded-pill px-4">全部</button>
-        <button class="btn btn-outline-secondary rounded-pill px-4">Apple</button>
-        <button class="btn btn-outline-secondary rounded-pill px-4">Samsung</button>
-        <button class="btn btn-outline-secondary rounded-pill px-4">Pixel</button>
-      </div>
-
+      <h2 class="section-title" data-aos="fade-up">論壇議程</h2>
       <div class="row g-4">
-        <!-- Product 1 -->
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-          <div class="card product-card h-100">
-            <div class="product-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=400&q=80" alt="iPhone 16">
-            </div>
-            <div class="card-body text-center">
-              <h5 class="card-title fw-bold">iPhone 17 Pro</h5>
-              <p class="text-muted small">鈦金屬藍色 | 256GB</p>
-              <p class="price-tag">NT$ 36,900</p>
-              <button class="btn btn-outline-primary w-100" onclick="addToCart('iPhone 17 Pro')">加入購物車</button>
-            </div>
+        <!-- Topic 1 -->
+        <div class="col-md-4" data-aos="flip-left" data-aos-delay="100">
+          <div class="agenda-card text-center">
+            <i class="bi bi-robot agenda-icon"></i>
+            <h4>人工智慧新紀元</h4>
+            <p class="text-secondary mb-3">09:00 - 10:30</p>
+            <p>深入探討 Generative AI 如何重塑創意產業與自動化流程的未來。</p>
           </div>
         </div>
-
-        <!-- Product 2 -->
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-          <div class="card product-card h-100">
-            <div class="product-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=400&q=80" alt="Samsung S25">
-            </div>
-            <div class="card-body text-center">
-              <h5 class="card-title fw-bold">Samsung S26 Ultra</h5>
-              <p class="text-muted small">夜幕綠 | 512GB</p>
-              <p class="price-tag">NT$ 40,900</p>
-              <button class="btn btn-outline-primary w-100" onclick="addToCart('Samsung S26 Ultra')">加入購物車</button>
-            </div>
+        <!-- Topic 2 -->
+        <div class="col-md-4" data-aos="flip-left" data-aos-delay="200">
+          <div class="agenda-card text-center">
+            <i class="bi bi-currency-bitcoin agenda-icon" style="color: #f7931a;"></i>
+            <h4>區塊鏈與 Web3</h4>
+            <p class="text-secondary mb-3">11:00 - 12:30</p>
+            <p>去中心化金融 (DeFi) 與資產代幣化的實際應用案例分析。</p>
           </div>
         </div>
-
-        <!-- Product 3 -->
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-          <div class="card product-card h-100">
-            <div class="product-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1598327773204-7b6c59d99723?auto=format&fit=crop&w=400&q=80" alt="Pixel 10">
-            </div>
-            <div class="card-body text-center">
-              <h5 class="card-title fw-bold">Google Pixel 10</h5>
-              <p class="text-muted small">曜石黑 | 128GB</p>
-              <p class="price-tag">NT$ 24,900</p>
-              <button class="btn btn-outline-primary w-100" onclick="addToCart('Google Pixel 10')">加入購物車</button>
-            </div>
+        <!-- Topic 3 -->
+        <div class="col-md-4" data-aos="flip-left" data-aos-delay="300">
+          <div class="agenda-card text-center">
+            <i class="bi bi-globe-americas agenda-icon" style="color: #28a745;"></i>
+            <h4>永續綠色科技</h4>
+            <p class="text-secondary mb-3">14:00 - 15:30</p>
+            <p>科技如何協助達成 2050 淨零碳排目標？從能源管理到碳捕捉。</p>
           </div>
         </div>
-
-        <!-- Product 4 -->
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-            <div class="card product-card h-100">
-              <div class="product-img-wrapper">
-                  <img src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&w=400&q=80" alt="Sony Xperia">
-              </div>
-              <div class="card-body text-center">
-                <h5 class="card-title fw-bold">Sony Xperia 1 VII</h5>
-                <p class="text-muted small">經典紫 | 256GB</p>
-                <p class="price-tag">NT$ 32,990</p>
-                <button class="btn btn-outline-primary w-100" onclick="addToCart('Sony Xperia 1 VII')">加入購物車</button>
-              </div>
-            </div>
-          </div>
       </div>
     </div>
   </section>
 
-  <!-- Services / Features Section -->
-  <section id="services" class="py-5">
+  <!-- Speakers Section (Carousel) -->
+  <section id="speakers" class="bg-dark">
     <div class="container">
-      <div class="row g-4 text-center">
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="feature-box p-4">
-                <div class="feature-icon">
-                    <i class="bi bi-shield-check fs-1"></i>
-                </div>
-                <h4 class="fw-bold">原廠保固</h4>
-                <p class="text-muted">所有商品皆為原廠正品，享有完整的一年原廠保固服務，讓您買得安心。</p>
+      <h2 class="section-title" data-aos="fade-up">特邀講者</h2>
+      
+      <div id="speakersCarousel" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up" data-aos-delay="200">
+        <div class="carousel-inner">
+          
+          <!-- Speaker 1 -->
+          <div class="carousel-item active">
+            <div class="text-center py-4">
+              <div class="speaker-img-container">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Speaker 1">
+              </div>
+              <h3>Dr. Sarah Chen</h3>
+              <p class="text-primary">OpenAI 資深研究員</p>
+              <button class="btn btn-sm btn-outline-light mt-2" data-bs-toggle="modal" data-bs-target="#modalSpeaker1">
+                查看詳細介紹
+              </button>
             </div>
+          </div>
+
+          <!-- Speaker 2 -->
+          <div class="carousel-item">
+            <div class="text-center py-4">
+              <div class="speaker-img-container">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="Speaker 2">
+              </div>
+              <h3>James Wong</h3>
+              <p class="text-primary">Ethereum 基金會核心開發者</p>
+              <button class="btn btn-sm btn-outline-light mt-2" data-bs-toggle="modal" data-bs-target="#modalSpeaker2">
+                查看詳細介紹
+              </button>
+            </div>
+          </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#speakersCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#speakersCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modals for Speakers -->
+  <div class="modal fade" id="modalSpeaker1" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark border-secondary">
+        <div class="modal-header border-secondary">
+          <h5 class="modal-title text-white">Dr. Sarah Chen</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-gray-300">
+          Sarah 博士在自然語言處理領域擁有超過 15 年的經驗，目前帶領團隊專注於大型語言模型的對齊與安全性研究。
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="modalSpeaker2" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark border-secondary">
+        <div class="modal-header border-secondary">
+          <h5 class="modal-title text-white">James Wong</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-gray-300">
+          James 是區塊鏈擴容解決方案的先驅，致力於透過 Layer 2 技術降低交易成本並提升網路吞吐量。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info Section -->
+  <section id="info">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">活動資訊</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
+          <div class="info-box">
+            <i class="bi bi-geo-alt-fill"></i>
+            <h5>地理位置</h5>
+            <p class="text-secondary">台北南港展覽館 2 館<br>7F 星際會議廳</p>
+          </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="feature-box p-4">
-                <div class="feature-icon">
-                    <i class="bi bi-truck fs-1"></i>
-                </div>
-                <h4 class="fw-bold">快速到貨</h4>
-                <p class="text-muted">全台 24 小時快速出貨，台北市區更享當日配服務，新機不用等。</p>
-            </div>
+          <div class="info-box">
+            <i class="bi bi-train-front-fill"></i>
+            <h5>交通方式</h5>
+            <p class="text-secondary">捷運南港展覽館站 1 號出口<br>步行約 3 分鐘</p>
+          </div>
         </div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="feature-box p-4">
-                <div class="feature-icon">
-                    <i class="bi bi-credit-card fs-1"></i>
-                </div>
-                <h4 class="fw-bold">分期零利率</h4>
-                <p class="text-muted">支援各大銀行信用卡分期付款，最高可享 24 期零利率優惠。</p>
-            </div>
+        <div class="col-md-4" data-aos="fade-left" data-aos-delay="300">
+          <div class="info-box">
+            <i class="bi bi-houses-fill"></i>
+            <h5>住宿優惠</h5>
+            <p class="text-secondary">憑票根享「南港老爺行旅」<br>每晚 85 折優惠</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact / Subscribe Section -->
-  <section id="contact" class="py-5 bg-dark text-white">
+  <!-- Contact Section -->
+  <section id="contact" class="bg-dark">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
-            <h2 class="fw-bold">訂閱最新優惠資訊</h2>
-            <p class="lead text-light opacity-75">
-                不想錯過新品預購或限時特價？立即訂閱我們的電子報！
-            </p>
-        </div>
-        <div class="col-lg-6" data-aos="fade-left">
-            <form id="subscribeForm" class="d-flex gap-2">
-                <input type="email" class="form-control form-control-lg" placeholder="請輸入您的 Email" required>
-                <button type="submit" class="btn btn-primary btn-lg px-4">訂閱</button>
-            </form>
+      <h2 class="section-title" data-aos="fade-up">聯絡我們</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8" data-aos="zoom-in-up">
+          <form id="contactForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <input type="text" class="form-control p-3" placeholder="您的姓名" required>
+              </div>
+              <div class="col-md-6">
+                <input type="email" class="form-control p-3" placeholder="電子郵件" required>
+              </div>
+              <div class="col-12">
+                <textarea class="form-control p-3" rows="5" placeholder="請輸入您的訊息..." required></textarea>
+              </div>
+              <div class="col-12 text-center mt-4">
+                <button type="submit" class="btn btn-glow w-50 rounded-pill">送出訊息</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="pt-5 pb-3">
+  <footer>
     <div class="container">
-        <div class="row g-4 mb-4">
-            <div class="col-md-4">
-                <h5 class="text-white mb-3">未來通訊 Future Mobile</h5>
-                <p class="small">我們致力於提供最新、最優質的智慧型手機與配件。客戶滿意是我們最大的動力。</p>
-                <div class="d-flex gap-3 mt-3">
-                    <a href="#"><i class="bi bi-facebook fs-5"></i></a>
-                    <a href="#"><i class="bi bi-instagram fs-5"></i></a>
-                    <a href="#"><i class="bi bi-line fs-5"></i></a>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <h5 class="text-white mb-3">快速連結</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a href="#hero">首頁</a></li>
-                    <li class="mb-2"><a href="#products">所有商品</a></li>
-                    <li class="mb-2"><a href="#">關於我們</a></li>
-                    <li class="mb-2"><a href="#contact">聯絡客服</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <h5 class="text-white mb-3">客戶服務</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a href="#">訂單查詢</a></li>
-                    <li class="mb-2"><a href="#">退換貨政策</a></li>
-                    <li class="mb-2"><a href="#">隱私權條款</a></li>
-                    <li class="mb-2"><a href="#">常見問題 (FAQ)</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <h5 class="text-white mb-3">聯絡資訊</h5>
-                <ul class="list-unstyled small">
-                    <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> 台北市信義區信義路五段 7 號</li>
-                    <li class="mb-2"><i class="bi bi-telephone me-2"></i> (02) 2345-6789</li>
-                    <li class="mb-2"><i class="bi bi-envelope me-2"></i> support@futuremobile.tw</li>
-                </ul>
-            </div>
-        </div>
-        <hr class="border-secondary">
-        <div class="text-center small">
-            <p class="mb-0">&copy; 2026 未來通訊 Future Mobile. All rights reserved.</p>
-        </div>
-    </div>
-  </footer>
-
-  <!-- Toast Notification Container -->
-  <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div id="cartToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="d-flex">
-        <div class="toast-body">
-          <i class="bi bi-check-circle me-2"></i> 已成功加入購物車！
-        </div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      <p class="mb-0 text-secondary">&copy; 2026 Future Tech Forum. All Rights Reserved.</p>
+      <div class="mt-2">
+        <a href="#" class="text-secondary me-3"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-secondary me-3"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="text-secondary"><i class="bi bi-linkedin"></i></a>
       </div>
     </div>
-  </div>
+  </footer>
 
   <!-- Bootstrap Bundle JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -408,27 +420,16 @@
   <script>
     // Initialize AOS
     AOS.init({
-      duration: 800,
-      once: true,
-      offset: 60
+      once: true, // Animation happens only once
+      offset: 120, // Offset (in px) from the original trigger point
+      duration: 800, // Duration of animation
     });
 
-    // Simple Cart Interaction
-    function addToCart(productName) {
-        const toastEl = document.getElementById('cartToast');
-        const toast = new bootstrap.Toast(toastEl);
-        
-        // Update toast message (optional)
-        // toastEl.querySelector('.toast-body').innerHTML = `<i class="bi bi-check-circle me-2"></i> 已將 ${productName} 加入購物車！`;
-        
-        toast.show();
-    }
-
-    // Subscribe Form
-    document.getElementById('subscribeForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('感謝訂閱！我們會將最新優惠發送至您的信箱。');
-        this.reset();
+    // Simple Form Handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('感謝您的訊息！我們會盡快與您聯繫。');
+      this.reset();
     });
   </script>
 </body>
